@@ -57,13 +57,20 @@ function cvIterator(profiles) {
 let next=document.getElementById("next");
 next.addEventListener('click',nextCV);
 
-const candidates = nextCV(data);
-
+const candidates = cvIterator(data);
+nextCV();
 function nextCV() {
     const currentCandidates=candidates.next().value;
     let image=document.getElementById("image");
     let profile=document.getElementById("profile");
 
     image.innerHTML=`<img src="${currentCandidates.image}">`
-    
+    profile.innerHTML=`
+    <ul class="list-group">
+    <li class="list-group-item">Name: ${currentCandidates.name}</li>
+    <li class="list-group-item">Age: ${currentCandidates.age}</li>
+    <li class="list-group-item">Lives in: ${currentCandidates.city}</li>
+    <li class="list-group-item">Works on: ${currentCandidates.language}</li>
+    <li class="list-group-item">Uses: ${currentCandidates.framework}</li>
+  </ul>`
 }
