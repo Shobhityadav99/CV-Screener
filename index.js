@@ -54,3 +54,16 @@ function cvIterator(profiles) {
         }
     }
 }
+let next=document.getElementById("next");
+next.addEventListener('click',nextCV);
+
+const candidates = nextCV(data);
+
+function nextCV() {
+    const currentCandidates=candidates.next().value;
+    let image=document.getElementById("image");
+    let profile=document.getElementById("profile");
+
+    image.innerHTML=`<img src="${currentCandidates.image}">`
+    
+}
